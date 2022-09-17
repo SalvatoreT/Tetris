@@ -2,5 +2,7 @@ local.properties
 build
 .idea
 .gradle
+gradlew.bat
 kotlin-js-store
 jdk-18
+*.DS_Store

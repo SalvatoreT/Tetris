@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        //mavenLocal()
         mavenCentral()
         gradlePluginPortal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
@@ -10,19 +9,17 @@ pluginManagement {
     plugins {
         val kotlinVersion = extra["kotlin.version"] as String
         kotlin("multiplatform").version(kotlinVersion)
+        kotlin("android").version(kotlinVersion)
+
+        val agpVersion = extra["agp.version"] as String
+        id("com.android.application").version(agpVersion)
+        id("com.android.library").version(agpVersion)
 
         val composeVersion = extra["compose.version"] as String
         id("org.jetbrains.compose").version(composeVersion)
-    }
-
-    resolutionStrategy {
-        eachPlugin {
-            if(requested.id.namespace == "com.android") {
-                useModule("com.android.tools.build:gradle:${requested.version}")
-            }
-        }
     }
 }
 
 rootProject.name = "tetris-mp"
 
+include(":android", ":common")
