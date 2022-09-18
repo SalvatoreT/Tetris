@@ -38,7 +38,10 @@ open class Soundtrack(scope: CoroutineScope) : CoroutineScope by scope {
     fun init() {
         launchMultiplatform {
             Clip.values().flatMap { it.res.toList() }.forEach { key ->
-                sounds[key] = resourcesVfs["sound/$key.mp3"].readSound()
+                // TODO fix JavaScript sound loading
+                resourcesVfs["sound/$key.mp3"].takeIfExists()?.let {
+                    sounds[key] = it.readSound()
+                }
             }
         }
     }

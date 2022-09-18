@@ -1,7 +1,6 @@
 @file:Suppress("UnstableApiUsage", "OPT_IN_USAGE")
 
 import org.jetbrains.compose.compose
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -44,11 +43,7 @@ kotlin {
 
     js(IR) {
         browser {
-            distribution {
-                directory = projectDir.resolve("artifacts/web")
-            }
         }
-        binaries.executable()
     }
 
     sourceSets {
@@ -120,12 +115,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-compose {
-    experimental {
-        web.application { }
     }
 }
 
