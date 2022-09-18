@@ -124,28 +124,6 @@ android {
 }
 
 compose {
-    desktop {
-        application {
-            mainClass = "Main_desktopKt"
-
-            nativeDistributions {
-                outputBaseDir.set(projectDir.resolve("artifacts/desktop"))
-                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-                packageName = "TetrisMP"
-                packageVersion = "1.0.0"
-
-                windows {
-                    // see https://wixtoolset.org/documentation/manual/v3/howtos/general/generate_guids.html
-                    upgradeUuid = "18159995-d967-4CD2-8885-77BFA97CFA9F"
-                }
-            }
-        }
-    }
-
-/*    android {
-        useAndroidX = true
-        androidxVersion = "1.2.0"
-    }*/
     experimental {
         web.application { }
     }

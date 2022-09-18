@@ -22,4 +22,4 @@ pluginManagement {
 
 rootProject.name = "tetris-mp"
 
-include(":android", ":common")
+include(":android", ":desktop", ":common")
